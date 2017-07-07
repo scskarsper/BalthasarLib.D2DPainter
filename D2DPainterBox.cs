@@ -22,6 +22,19 @@ namespace BalthasarLib.D2DPainter
         // 将创建的委托和特定事件关联,在这里特定的事件为KeyDown
         public event OnD2DPaintHandler D2DPaint;
 
+        private bool _antialias = false;
+        public bool Antialias {
+            get { return _antialias; }
+            set {
+                if (RenderTarget2D != null)
+                {
+                    _antialias = value;
+                    RenderTarget2D.AntialiasMode = AntialiasMode.Aliased;
+                    if (_antialias) RenderTarget2D.AntialiasMode = AntialiasMode.PerPrimitive;
+                }
+            }
+        }
+
         public D2DPainterBox()
         {
             InitializeComponent();
@@ -59,10 +72,11 @@ namespace BalthasarLib.D2DPainter
                 PresentOptions = PresentOptions.None
             };
             // 渲染目标。
-            RenderTarget2D = new WindowRenderTarget(factory, renderProps, hwndProps)
-            {
-                AntialiasMode = AntialiasMode.PerPrimitive
-            };
+            
+            RenderTarget2D = new WindowRenderTarget(factory, renderProps, hwndProps);
+            RenderTarget2D.AntialiasMode = AntialiasMode.Aliased;
+            if (Antialias) RenderTarget2D.AntialiasMode = AntialiasMode.PerPrimitive;
+
             g = new D2DGraphics(RenderTarget2D, FactoryDWrite);
         }
 

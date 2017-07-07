@@ -36,16 +36,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="SharpDX">
-      <HintPath>..\MIDIReader\Pkgs\bin\SharpDX.4.0.1\lib\net40\SharpDX.dll</HintPath>
+      <HintPath>includes\SharpDX.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.Direct2D1">
-      <HintPath>..\MIDIReader\Pkgs\bin\SharpDX.Direct2D1.4.0.1\lib\net40\SharpDX.Direct2D1.dll</HintPath>
+      <HintPath>includes\SharpDX.Direct2D1.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.DXGI">
-      <HintPath>..\MIDIReader\Pkgs\bin\SharpDX.DXGI.4.0.1\lib\net40\SharpDX.DXGI.dll</HintPath>
+      <HintPath>includes\SharpDX.DXGI.dll</HintPath>
     </Reference>
     <Reference Include="SharpDX.Mathematics">
-      <HintPath>..\MIDIReader\Pkgs\bin\SharpDX.Mathematics.4.0.1\lib\net40\SharpDX.Mathematics.dll</HintPath>
+      <HintPath>includes\SharpDX.Mathematics.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
