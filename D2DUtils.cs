@@ -44,7 +44,7 @@ namespace BalthasarLib.D2DPainter
         public SharpDX.DirectWrite.TextFormat Font2Raw(System.Drawing.Font Font)
         {
             SharpDX.DirectWrite.TextFormat ret;
-            //new SharpDX.DirectWrite.TextFormat(FactoryDWrite, "微软雅黑", 12)
+            //new SharpDX.DirectWrite.TextFormat(FactoryDWrite, "Tahoma", 12)
             ret = new SharpDX.DirectWrite.TextFormat(DWrender,
                 Font.FontFamily.Name,
                 Font.Bold ? SharpDX.DirectWrite.FontWeight.Bold : SharpDX.DirectWrite.FontWeight.Normal,
