@@ -159,8 +159,22 @@ namespace BalthasarLib.D2DPainter
             D2Drender.FillEllipse(new SharpDX.Direct2D1.Ellipse(utils.Point2Raw(center), width / 2, height / 2),
                              utils.SoildBrush2Raw(LineColor));
         }
-        public void DrawText(string Text, System.Drawing.Rectangle drawRectangle, System.Drawing.Color Color,System.Drawing.Font Font)
+        public void DrawText(string Text, System.Drawing.Rectangle drawRectangle, System.Drawing.Color Color,System.Drawing.Font Font,bool overflowHidden=true)
         {
+            float width = drawRectangle.Width;
+            float height = drawRectangle.Height;
+            if (overflowHidden)
+            {
+                SharpDX.DirectWrite.TextLayout pTextLayout = new SharpDX.DirectWrite.TextLayout(
+                    DWrender,
+                    Text,
+                    utils.Font2Raw(Font),
+                    drawRectangle.Width,
+                    drawRectangle.Height);
+                width = pTextLayout.Metrics.WidthIncludingTrailingWhitespace;
+                height = pTextLayout.Metrics.Height;
+            }
+            if(width<drawRectangle.Width && height<drawRectangle.Height)
             D2Drender.DrawText(Text,
                 utils.Font2Raw(Font),
                 utils.Retangle2Raw(drawRectangle),
